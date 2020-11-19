@@ -10,7 +10,7 @@ var bulletIMG,bulletGroup
 
 var diamond,diamondIMG,diamondGroup
 
-var diamondsLeft = 7;
+var diamondsLeft = 8;
 
 var score = 0;
 
@@ -60,23 +60,23 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(400,800);
+  createCanvas(windowWidth/2,windowHeight);
   
-  bg = createSprite(200,400,20,20);
+  bg = createSprite(windowWidth/2,windowHeight,20,20);
 
   bg.addImage(backgroundIMG);
 
-  bg.scale = 15
+  bg.scale = 30
 
-  playButton = createSprite(200,400,20,20);
+  playButton = createSprite(width/2,height/2,20,20);
   playButton.addImage(playIMG)
   
-  restartButton = createSprite(200,500,20,20);
+  restartButton = createSprite(width/2,height/2 + 50,20,20);
   restartButton.addImage(restartIMG);
   restartButton.visible = false;
   
 
-  player = createSprite(200,600,32,32);
+  player = createSprite(windowWidth/4,windowHeight - 330,32,32);
 
   player.addAnimation("runRight",playerRun);
   player.addAnimation("runLeft",playerRunFlip);
@@ -91,7 +91,7 @@ function setup() {
 
 
 
-  for(var i = 50; i < 400; i = i + 50 ) {
+  for(var i = width/2 - 200; i <= width - 150; i = i + 50 ) {
 
     diamond = createSprite(i,700,18,14);
     diamond.addAnimation("diamonds",diamondIMG);
@@ -279,14 +279,14 @@ function reset(){
 
   diamondsLeft = 7;
 
-  player.x = 200;
-  player.y = 600;
+  player.x = windowWidth/4;
+  player.y = windowHeight - 330;
 
   score = 0;
 
   restartButton.visible = false;
 
-  for(var i = 50; i < 400; i = i + 50 ) {
+  for(var i = width/2 - 200; i <= width - 150; i = i + 50 ) {
 
     diamond = createSprite(i,700,18,14);
     diamond.addAnimation("diamonds",diamondIMG);
@@ -308,7 +308,7 @@ function createEnemys(){
   if(frameCount % 60 === 0){
     var enemy = createSprite(200,0,32,32);
 
-    enemy.x = Math.round(random(0,400));
+    enemy.x = Math.round(random(width/2 - 200,width - 150));
 
     enemy.addImage(enemyIMG);
 
