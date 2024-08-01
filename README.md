@@ -1,2 +1,1 @@
-# p5.play-boilerplate
-Boiler plate for p5.play
+A project I made for a coding course. Im going to be honest I dont remember much about it besides the fact that I had fun making it :)
